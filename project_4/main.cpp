@@ -54,7 +54,7 @@ int locationOfMax(const string a[], int n) {
 }
 
 int circleLeft(string a[], int n, int pos) {
-    if (n < 0 || pos < 0 || n <= pos)
+    if (n <= 0 || pos < 0 || n <= pos)
         return -1;
     string val = a[pos];
     for (int i = pos; i < n; i ++) {
