@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include <cassert>
 
 using namespace std;
@@ -143,36 +144,6 @@ int locateAny(const string a1[], int n1, const string a2[], int n2) {
     return -1;
 }
 
-//int divide(string a[], int n, string divider) {
-//    if (n < 0)
-//        return -1;
-////    for (int i = 0; i < n; i ++) {
-////        if (a[i] > divider) {
-////            
-////        }
-////    }
-//    int i = 0;
-//    int bigger = 0;
-//    string tempVal;
-//    while (i + bigger < n) {
-//        if (a[i] >= divider) {
-//            for (int j = n - 1 - i - bigger; j > i; j --) {
-//                if (a[j] <= divider) {
-//                    tempVal = a[i];
-//                    a[i] = a[n - 1 - bigger];
-//                    a[n - 1 - bigger] = tempVal;
-//                }
-//            }
-//            bigger ++;
-//        }
-//        else
-//            i ++;
-//        cerr << i << " " << bigger << endl;
-//        printString(a, n);
-//    }
-//    return n - bigger;
-//}
-
 int divide(string a[], int n, string divider) {
     if (n < 0)
         return -1;
@@ -180,7 +151,7 @@ int divide(string a[], int n, string divider) {
     int div = 0;
     for (int i = 0; i < n; i ++) {
         while (a[i] > divider && i + bigger < n) {
-            circleLeft(a, n, i);
+            swap(a[i], a[n - 1 - bigger]);
             bigger ++;
         }
         if (a[i] == divider)
