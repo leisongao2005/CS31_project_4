@@ -72,7 +72,6 @@ int enumerateRuns(const string a[], int n) {
     string start;
     for (int i = 0; i < n; i ++) {
         start = a[i];
-//        cerr << start << endl;
         while (a[i + 1] == start && i < n) {
             i ++;
         }
@@ -112,7 +111,6 @@ int subsequence(const string a1[], int n1, const string a2[], int n2) {
     if (n2 == 0)
         return 0;
     bool matching = false;
-//    int pos = n1;
     for (int i = 0; i < n1; i ++) {
         if (a1[i] == a2[0]) {
             for (int j = 0; j < n2; j ++) {
@@ -133,13 +131,11 @@ int locateAny(const string a1[], int n1, const string a2[], int n2) {
     if (n1 < 0 || n2 < 0)
         return -1;
     for (int i = 0; i < n1; i ++) {
-//        cerr << "checking for " << a1[i] << endl;
         for (int j = 0; j < n2; j ++) {
             if (a1[i] == a2[j]) {
                 return i;
             }
         }
-//        cerr << "checked!" << endl;
     }
     return -1;
 }
